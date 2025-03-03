@@ -5,6 +5,7 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import connectDB from "./db/index.js";
 import healthCheckRouter from "./routes/healthcheck.routes.js";
+import userRouter from "./routes/user.routes.js";
 dotenv.config({ path: "./src/.env" });
 // Constants
 const PORT = process.env.PORT || 8001;
@@ -26,3 +27,6 @@ connectDB().then(() => {
 
 
 app.use("/api/v1/healthcheck", healthCheckRouter);
+app.use("/api/v1/user", userRouter);
+
+
